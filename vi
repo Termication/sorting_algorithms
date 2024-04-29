@@ -1,0 +1,62 @@
+
+/**
+ * cocktail_sort_list - Sorts a doubly linked list of integers
+ *                      in ascending order using the Cocktail Shaker sort algorithm.
+ *
+ * @list: A pointer to the head of the doubly linked list.
+ */
+void cocktail_sort_list(listint_t **list)
+{
+	if (!list || !(*list) || (!((*list)->prev) && !((*list)->next)))
+		return;
+
+	listint_t *current, *temp;
+	int has_swapped;
+	size_t list_size = 0;
+
+	/* Determine the size of the list */
+	for (current = *list; current->next; current = current->next)
+		list_size++;
+
+	/* Iterate through the list until no swaps are made */
+	for (size_t i = 0; i < list_size / 2; i++)
+	{
+		has_swapped = 0;
+
+		/* Forward pass (Bubble Sort style) */
+		for (current = *list; current->next; current = current->next)
+		{
+			if (current->n > current->next->n)
+			{
+				temp = current;
+				_swap(&temp, list);
+				print_list(*list);
+				current = temp;
+				has_swapped = 1;
+			}
+		}
+
+		/* If no swaps occurred, the list is already sorted */
+		if (!has_swapped)
+			break;
+
+		has_swapped = 0;
+
+		/* Backward pass */
+		for (; current->prev; current = current->prev)
+		{
+			if (current->n < current->prev->n)
+			{
+				temp = current->prev;
+				_swap(&temp, list);
+				print_list(*list);
+				current = temp->next;
+				has_swapped = 1;
+			}
+		}
+
+		/* If no swaps occurred, the list is already sorted */
+		if (!has_swapped)
+			break;
+	}
+}
