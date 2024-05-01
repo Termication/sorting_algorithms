@@ -1,5 +1,6 @@
 #include "sort.h"
 
+void heapify_down(int *array, size_t s, size_t root, size_t size);
 /**
  * heap_sort - Sorts an array of integers in ascending order using the Heap sort
  *		algorithm.
