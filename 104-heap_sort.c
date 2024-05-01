@@ -2,8 +2,8 @@
 
 void heapify_down(int *array, size_t s, size_t root, size_t size);
 /**
- * heap_sort - Sorts an array of integers in ascending order using the Heap sort
- *		algorithm.
+ * heap_sort - Sorts an array of integers in ascending
+ * order using the Heap sort algorithm.
  *
  * @array: The array to be sorted.
  * @size: The size of the array.
@@ -33,8 +33,9 @@ void heap_sort(int *array, size_t size)
 }
 
 /**
- * heapify_down - Maintains the heap property of a subtree rooted at a given node
- *		  by moving elements down the heap when necessary.
+ * heapify_down - Maintains the heap property of a
+ * subtree rooted at a given node by moving elements
+ * down the heap when necessary.
  *
  * @array: The array to be sorted.
  * @s: The size of the heap.
