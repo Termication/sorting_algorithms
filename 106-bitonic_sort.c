@@ -11,16 +11,19 @@
  */
 void swap_values(int arr[], int index1, int index2, int ascending)
 {
+	int temp;
+
 	if (ascending == (arr[index1] > arr[index2]))
 	{
-		int temp = arr[index1];
+		temp = arr[index1];
 		arr[index1] = arr[index2];
 		arr[index2] = temp;
 	}
 }
 
 /**
- * merge_subarrays - Recursively merge bitonic sequences in both ascending and descending orders.
+ * merge_subarrays - Recursively merge bitonic sequences in
+ * both ascending and descending orders.
  * @arr: The array.
  * @low: The index of the first element in the subarray.
  * @count: The number of elements in the subarray.
@@ -48,7 +51,8 @@ void merge_subarrays(int arr[], int low, int count, int ascending)
  * @ascending: Whether the sorting order is ascending (1) or descending (0).
  * @size: The total size of the array.
  */
-void bitonic_sort_recursive(int arr[], int low, int count, int ascending, int size)
+void bitonic_sort_recursive(int arr[], int low, int count,
+		int ascending, int size)
 {
 	int mid;
 
